@@ -375,7 +375,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2025-03-26
+                    2025-04-28
                 </div>
                 
 
@@ -419,7 +419,7 @@
 <p>这个命令，在<code>nodejs</code>安装成功的情况下会显示<code>npm</code>的版本号。</p>
 <h3 id="2-3、安装Git"><a href="#2-3、安装Git" class="headerlink" title="2.3、安装Git"></a>2.3、安装Git</h3><p>建议到<a target="_blank" rel="noopener" href="https://git-scm.com/">Git官网</a>安装最新版本，也可以从国内中文网下载以提升下载速度，默认安装即可。</p>
 <p>完成之后可以在文件目录下鼠标右键唤出菜单中查看到Git Bash工具：</p>
-<img src="/2025/03/26/%E9%80%9A%E8%BF%87GitHub-Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1742976616763.jpg" class alt="Git">
+<img src="/2025/04/28/%E9%80%9A%E8%BF%87GitHub-Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1742976616763.jpg" class alt="Git">
 
 
 
@@ -441,7 +441,7 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br></pre></td></tr></table></figure>
 
 <p>这个命令就是创建博客基础框架内容，这个可能需要一段时间，稍微等待之后，完成后文件夹下就会有如下内容：</p>
-<img src="/2025/03/26/%E9%80%9A%E8%BF%87GitHub-Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1742976638122.jpg" class alt="blog文件内容">
+<img src="/2025/04/28/%E9%80%9A%E8%BF%87GitHub-Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1742976638122.jpg" class alt="blog文件内容">
 
 <p>如果缺少 <code>node_modules</code> 文件夹，请按照如下所述操作（否则跳过此步骤），导致这个原因为在自己的博客文件夹中的 <code>.gitignore</code> 文件中添加了 <code>node_modules/</code> ，导致更新的时候，这个文件夹被忽略，没有被更新上去。解决方案：</p>
 <ol>
@@ -452,10 +452,10 @@
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo s</span><br></pre></td></tr></table></figure>
 
 <p>完成后会在本地<code>http://localhost:4000/ </code>这个地址启动你的本地博客，浏览器中输入地址效果如下：</p>
-<img src="/2025/03/26/%E9%80%9A%E8%BF%87GitHub-Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1742976667542.jpg" class alt="初始页面">
+<img src="/2025/04/28/%E9%80%9A%E8%BF%87GitHub-Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1742976667542.jpg" class alt="初始页面">
 
 <h2 id="4、GitHub部署"><a href="#4、GitHub部署" class="headerlink" title="4、GitHub部署"></a>4、GitHub部署</h2><h3 id="4-1、创建仓库"><a href="#4-1、创建仓库" class="headerlink" title="4.1、创建仓库"></a>4.1、创建仓库</h3><p>登录 GitHub 账号，新建一个名为 <code>username.github.io</code>（这里的<code>username</code>要替换成自己的实际的用户名） 的仓库，例如我的账号名为<code>jiahao798</code>，则我的仓库名为<code>jiahao798.github.io</code>如下图：</p>
-<img src="/2025/03/26/%E9%80%9A%E8%BF%87GitHub-Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1742976688707.jpg" class alt="创建仓库">
+<img src="/2025/04/28/%E9%80%9A%E8%BF%87GitHub-Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1742976688707.jpg" class alt="创建仓库">
 
 <p>这里的<code>Repository name</code>一定要填写<code>username.github.io</code>，例如你的用户名是<code>jiahao798</code>，那么就填写<code>jiahao798.github.io</code>不然不管用。</p>
 <h3 id="4-2、部署到GitHub仓库"><a href="#4-2、部署到GitHub仓库" class="headerlink" title="4.2、部署到GitHub仓库"></a>4.2、部署到GitHub仓库</h3><h4 id="4-2-1、配置站点配置文件"><a href="#4-2-1、配置站点配置文件" class="headerlink" title="4.2.1、配置站点配置文件"></a>4.2.1、配置站点配置文件</h4><p>Hexo 有2种 <code>_config.yml</code>文件，一个是根目录下的全局的 <code>_config.yml</code>，一个是各个主体 theme 下的 <code>_config.yml</code>。将前者称为<strong>站点配置文件</strong>， 后者称为<strong>主题配置文件</strong>。</p>
@@ -486,7 +486,7 @@
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">theme:</span> <span class="string">matery</span></span><br></pre></td></tr></table></figure>
 
 <p>配置完成后执行<code>hexo g</code>和<code>hexo s</code>命令，访问<code>http://localhost:4000/</code>就可以看到新主题网站如下：</p>
-<img src="/2025/03/26/%E9%80%9A%E8%BF%87GitHub-Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1742976720917.jpg" class alt="matery主题页面">
+<img src="/2025/04/28/%E9%80%9A%E8%BF%87GitHub-Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/1742976720917.jpg" class alt="matery主题页面">
 
 <p>主题的配置需要到站点根目录下<code>themes/matery/_config.yml</code>文件中更改。</p>
 <h4 id="5-1-2、站点配置信息"><a href="#5-1-2、站点配置信息" class="headerlink" title="5.1.2、站点配置信息"></a>5.1.2、站点配置信息</h4><p>打开根目录下站点配置文件 <code>_config.yml</code>，不是上面的主题配置文件，设置如下内容：</p>
@@ -548,7 +548,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://jiahao798.github.io/2025/03/26/%E9%80%9A%E8%BF%87GitHub-Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">https://jiahao798.github.io/2025/03/26/%E9%80%9A%E8%BF%87GitHub-Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</a>
+                    <a href="https://jiahao798.github.io/2025/04/28/%E9%80%9A%E8%BF%87GitHub-Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">https://jiahao798.github.io/2025/04/28/%E9%80%9A%E8%BF%87GitHub-Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -667,7 +667,7 @@
                 <i class="far fa-dot-circle"></i>&nbsp;本篇
             </div>
             <div class="card">
-                <a href="/2025/03/26/%E9%80%9A%E8%BF%87GitHub-Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+                <a href="/2025/04/28/%E9%80%9A%E8%BF%87GitHub-Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
                     <div class="card-image">
                         
                         
@@ -684,7 +684,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-03-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-04-28
                             </span>
                         <span class="publish-author">
                             
@@ -705,7 +705,7 @@
                 本篇&nbsp;<i class="far fa-dot-circle"></i>
             </div>
             <div class="card">
-                <a href="/2025/03/26/%E9%80%9A%E8%BF%87GitHub-Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+                <a href="/2025/04/28/%E9%80%9A%E8%BF%87GitHub-Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
                     <div class="card-image">
                         
                         
@@ -722,7 +722,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-03-26
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-04-28
                             </span>
                         <span class="publish-author">
                             
