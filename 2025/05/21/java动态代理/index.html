@@ -4,17 +4,13 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="卡码笔记-邮箱验证码发送, JiaHaoのblog">
-    <meta name="description" content="如何通过邮箱发送并接收验证码邮箱验证的基本流程：
-1、用户输入邮箱
-2、发送验证码
-3、用户输入验证码
-4、验证并完成注册
-详细流程图
+    <meta name="keywords" content="java动态代理, JiaHaoのblog">
+    <meta name="description" content="程序为什么需要代理？代理长什么样？
 
-
-
-数据库表设计CREATE TABLE `email_verify_code`  (  `id` b">
+对象如果嫌身上干的事太多的话，可以通过代理来转移部分职责。
+对象有什么方法想被代理，代理就一定要有对应的方法。
+接下来我们可以实现一下代理先创建一个BigStar类
+public class BigSt">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -26,7 +22,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>卡码笔记-邮箱验证码发送 | JiaHaoのblog</title>
+    <title>java动态代理 | JiaHaoのblog</title>
     <link rel="icon" type="image/png" href="/favicon.png">
     
 
@@ -343,12 +339,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/0.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/6.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">卡码笔记-邮箱验证码发送</h1>
+                    <h1 class="description center-align post-title">java动态代理</h1>
                 </div>
             </div>
         </div>
@@ -384,7 +380,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2025-05-03
+                    2025-05-21
                 </div>
                 
 
@@ -408,47 +404,46 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="如何通过邮箱发送并接收验证码"><a href="#如何通过邮箱发送并接收验证码" class="headerlink" title="如何通过邮箱发送并接收验证码"></a>如何通过邮箱发送并接收验证码</h1><p>邮箱验证的基本流程：</p>
-<p>1、用户输入邮箱</p>
-<p>2、发送验证码</p>
-<p>3、用户输入验证码</p>
-<p>4、验证并完成注册</p>
-<h2 id="详细流程图"><a href="#详细流程图" class="headerlink" title="详细流程图"></a>详细流程图</h2><img src="/2025/05/03/%E5%8D%A1%E7%A0%81%E7%AC%94%E8%AE%B0-%E9%82%AE%E7%AE%B1%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8F%91%E9%80%81/image-20250503191002129.png" class alt="发送邮件">
+                <h2 id="程序为什么需要代理？代理长什么样？"><a href="#程序为什么需要代理？代理长什么样？" class="headerlink" title="程序为什么需要代理？代理长什么样？"></a>程序为什么需要代理？代理长什么样？</h2><img src="/2025/05/21/java%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/image-20250521195717292.png" alt="动态代理" style="zoom:50%;">
 
-<img src="/2025/05/03/%E5%8D%A1%E7%A0%81%E7%AC%94%E8%AE%B0-%E9%82%AE%E7%AE%B1%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8F%91%E9%80%81/image-20250503191044925.png" class alt="校验邮件">
+<p>对象如果嫌身上干的事太多的话，可以通过代理来转移部分职责。</p>
+<p>对象有什么方法想被代理，代理就一定要有对应的方法。</p>
+<h2 id="接下来我们可以实现一下代理"><a href="#接下来我们可以实现一下代理" class="headerlink" title="接下来我们可以实现一下代理"></a>接下来我们可以实现一下代理</h2><p>先创建一个BigStar类</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BigStar</span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="title function_">BigStar</span><span class="params">(String name)</span> &#123;</span><br><span class="line">        <span class="built_in">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">sing</span><span class="params">(String name)</span>&#123;</span><br><span class="line">        System.out.println(<span class="built_in">this</span>.name + <span class="string">&quot;唱了一首&quot;</span> + name);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;谢谢！&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">dance</span><span class="params">(String name)</span>&#123;</span><br><span class="line">        System.out.println(<span class="built_in">this</span>.name + <span class="string">&quot;跳了一支&quot;</span> + name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="数据库表设计"><a href="#数据库表设计" class="headerlink" title="数据库表设计"></a>数据库表设计</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">CREATE TABLE</span> `email_verify_code`  (</span><br><span class="line">  `id` <span class="type">bigint</span> <span class="keyword">NOT NULL</span> AUTO_INCREMENT COMMENT <span class="string">&#x27;主键ID&#x27;</span>,</span><br><span class="line">  `email` <span class="type">varchar</span>(<span class="number">100</span>) <span class="keyword">CHARACTER SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_0900_ai_ci <span class="keyword">NOT NULL</span> COMMENT <span class="string">&#x27;邮箱地址&#x27;</span>,</span><br><span class="line">  `code` <span class="type">varchar</span>(<span class="number">6</span>) <span class="keyword">CHARACTER SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_0900_ai_ci <span class="keyword">NOT NULL</span> COMMENT <span class="string">&#x27;验证码&#x27;</span>,</span><br><span class="line">  `type` <span class="type">varchar</span>(<span class="number">20</span>) <span class="keyword">CHARACTER SET</span> utf8mb4 <span class="keyword">COLLATE</span> utf8mb4_0900_ai_ci <span class="keyword">NOT NULL</span> COMMENT <span class="string">&#x27;验证码类型：REGISTER-注册，RESET_PASSWORD-重置密码&#x27;</span>,</span><br><span class="line">  `expired_at` <span class="type">timestamp</span> <span class="keyword">NOT NULL</span> COMMENT <span class="string">&#x27;过期时间&#x27;</span>,</span><br><span class="line">  `created_at` <span class="type">timestamp</span> <span class="keyword">NOT NULL</span> <span class="keyword">DEFAULT</span> <span class="built_in">CURRENT_TIMESTAMP</span> COMMENT <span class="string">&#x27;创建时间&#x27;</span>,</span><br><span class="line">  `used` tinyint(<span class="number">1</span>) <span class="keyword">NOT NULL</span> <span class="keyword">DEFAULT</span> <span class="number">0</span> COMMENT <span class="string">&#x27;是否已使用&#x27;</span>,</span><br><span class="line">  <span class="keyword">PRIMARY KEY</span> (`id`) <span class="keyword">USING</span> BTREE,</span><br><span class="line">  INDEX `idx_email`(`email` <span class="keyword">ASC</span>) <span class="keyword">USING</span> BTREE,</span><br><span class="line">  INDEX `idx_code`(`code` <span class="keyword">ASC</span>) <span class="keyword">USING</span> BTREE,</span><br><span class="line">  INDEX `idx_expired_at`(`expired_at` <span class="keyword">ASC</span>) <span class="keyword">USING</span> BTREE</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>该类中我们定义了sing和dance两个方法，然后我们再创建一个Star接口</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Star</span> &#123;</span><br><span class="line">    String <span class="title function_">sing</span><span class="params">(String name)</span>;</span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">dance</span><span class="params">(String name)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="验证码设计哲学"><a href="#验证码设计哲学" class="headerlink" title="验证码设计哲学"></a>验证码设计哲学</h3><p>1、验证码要持久化，需要追踪验证码使用情况，防止验证码重复使用，便于计算验证码发送统计</p>
-<p>2、字段设计：</p>
-<p>​	<code>type</code>：区分不同应用场景，如注册和重制密码；</p>
-<p>​	<code>expired_at</code>：独立的过期时间字段，不依赖<code>created_at</code>计算；</p>
-<p>​	<code>used</code>：显示的使用标记，提升查询性能；</p>
-<p>3、索引设计：</p>
-<p>​	<code>idx_email</code> + <code>idx_code</code>：支持验证时的快速查询；</p>
-<p>​	<code>idx_expired_at</code>：支持过期数据清理；</p>
-<h3 id="用户表扩展"><a href="#用户表扩展" class="headerlink" title="用户表扩展"></a>用户表扩展</h3><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">ALTER TABLE</span> <span class="keyword">user</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ADD</span> <span class="keyword">COLUMN</span> email_verified <span class="type">BOOLEAN</span> <span class="keyword">DEFAULT</span> <span class="literal">FALSE</span> COMMENT <span class="string">&#x27;邮箱是否验证&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ADD</span> <span class="keyword">UNIQUE</span> INDEX idx_email(email);</span><br></pre></td></tr></table></figure>
+<p>接口中声明了两个方法，我们在BigStar类中实现的两个方法，所以可以将代码修改为</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">BigStar</span> <span class="keyword">implements</span> <span class="title class_">Star</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="用户表升级秘籍"><a href="#用户表升级秘籍" class="headerlink" title="用户表升级秘籍"></a>用户表升级秘籍</h4><p>1、<code>email_verified</code>：标记验证状态，用于控制功能访问权限，区分可信邮箱，统计验证率；</p>
-<p>2、唯一索引确保邮箱不被重复使用，并且提高邮箱查询性能；</p>
-<h2 id="功能实现代码"><a href="#功能实现代码" class="headerlink" title="功能实现代码"></a>功能实现代码</h2><h3 id="验证码的生成与发送"><a href="#验证码的生成与发送" class="headerlink" title="验证码的生成与发送"></a>验证码的生成与发送</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Value(&quot;$&#123;spring.mail.username&#125;&quot;)</span></span><br><span class="line">   <span class="keyword">private</span> String fromEmail;</span><br><span class="line"></span><br><span class="line">   <span class="meta">@Value(&quot;$&#123;mail.verify-code.expire-minutes&#125;&quot;)</span></span><br><span class="line">   <span class="keyword">private</span> <span class="type">int</span> expireMinutes;</span><br><span class="line"></span><br><span class="line">   <span class="meta">@Value(&quot;$&#123;mail.verify-code.resend-interval&#125;&quot;)</span></span><br><span class="line">   <span class="keyword">private</span> <span class="type">int</span> resendInterval;</span><br><span class="line"></span><br><span class="line">   <span class="meta">@Override</span></span><br><span class="line">   <span class="keyword">public</span> String <span class="title function_">sendVerifyCode</span><span class="params">(String email, String type)</span> &#123;</span><br><span class="line">       <span class="comment">// 检查发送频率</span></span><br><span class="line">       <span class="keyword">if</span> (!canSendCode(email)) &#123;</span><br><span class="line">           <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;发送太频繁，请稍后再试&quot;</span>);</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">       <span class="comment">// 生成6位随机验证码</span></span><br><span class="line">       <span class="type">String</span> <span class="variable">verifyCode</span> <span class="operator">=</span> generateVerifyCode();</span><br><span class="line"></span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           <span class="comment">// 发送邮件</span></span><br><span class="line">           <span class="type">SimpleMailMessage</span> <span class="variable">message</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SimpleMailMessage</span>();</span><br><span class="line">           message.setFrom(fromEmail);</span><br><span class="line">           message.setTo(email);</span><br><span class="line">           message.setSubject(<span class="string">&quot;卡码笔记 - 验证码&quot;</span>);</span><br><span class="line">           message.setText(<span class="string">&quot;您的验证码是：&quot;</span> + verifyCode + <span class="string">&quot;，有效期&quot;</span> + expireMinutes + <span class="string">&quot;分钟，请勿泄露给他人。&quot;</span>);</span><br><span class="line">           mailSender.send(message);</span><br><span class="line"></span><br><span class="line">           <span class="comment">// 保存验证码记录</span></span><br><span class="line">           <span class="type">EmailVerifyCode</span> <span class="variable">code</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">EmailVerifyCode</span>();</span><br><span class="line">           code.setEmail(email);</span><br><span class="line">           code.setCode(verifyCode);</span><br><span class="line">           code.setType(type);</span><br><span class="line">           code.setExpiredAt(LocalDateTime.now().plusMinutes(expireMinutes));</span><br><span class="line">           emailVerifyCodeMapper.insert(code);</span><br><span class="line"></span><br><span class="line">           <span class="comment">// 记录发送时间到Redis</span></span><br><span class="line">           <span class="type">String</span> <span class="variable">redisKey</span> <span class="operator">=</span> <span class="string">&quot;email:verify:limit:&quot;</span> + email;</span><br><span class="line">           redisTemplate.opsForValue().set(redisKey, <span class="string">&quot;1&quot;</span>, resendInterval, TimeUnit.SECONDS);</span><br><span class="line"></span><br><span class="line">           <span class="keyword">return</span> verifyCode;</span><br><span class="line">       &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">           log.error(<span class="string">&quot;发送验证码邮件失败&quot;</span>, e);</span><br><span class="line">           <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">RuntimeException</span>(<span class="string">&quot;发送验证码失败，请稍后重试&quot;</span>);</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+<p>我们需要通过代理来实现这个接口，所以我们为其创建一个类来实现</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ProxyUtil</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Star <span class="title function_">creatProxy</span><span class="params">(BigStar bigStar)</span>&#123;</span><br><span class="line">        <span class="comment">/*newProxyInstance(ClassLoader loader,</span></span><br><span class="line"><span class="comment">                Class&lt;?&gt;[] interfaces,</span></span><br><span class="line"><span class="comment">                InvocationHandler h)</span></span><br><span class="line"><span class="comment">                参数1：用于指定一个类加载器</span></span><br><span class="line"><span class="comment">                参数2：指定生成的代理长什么样子，也就是有哪些方法</span></span><br><span class="line"><span class="comment">                参数3：用来指定生成的代理对象要干什么事</span></span><br><span class="line"><span class="comment">                */</span></span><br><span class="line">        <span class="type">Star</span> <span class="variable">starProxy</span> <span class="operator">=</span> (Star) Proxy.newProxyInstance(ProxyUtil.class.getClassLoader(),</span><br><span class="line">                <span class="keyword">new</span> <span class="title class_">Class</span>[]&#123;Star.class&#125;, <span class="keyword">new</span> <span class="title class_">InvocationHandler</span>() &#123;</span><br><span class="line">                    <span class="meta">@Override</span> <span class="comment">// 回调方法</span></span><br><span class="line">                    <span class="keyword">public</span> Object <span class="title function_">invoke</span><span class="params">(Object proxy, Method method, Object[] args)</span> <span class="keyword">throws</span> Throwable &#123;</span><br><span class="line">                        <span class="comment">// 代理要做的事，在这里写逻辑</span></span><br><span class="line">                        <span class="keyword">if</span>(method.getName().equals(<span class="string">&quot;sing&quot;</span>))&#123;</span><br><span class="line">                            System.out.println(<span class="string">&quot;准备话筒，收钱20万&quot;</span>);</span><br><span class="line">                            <span class="keyword">return</span> method.invoke(bigStar, args);</span><br><span class="line">                        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(method.getName().equals(<span class="string">&quot;dance&quot;</span>))&#123;</span><br><span class="line">                            System.out.println(<span class="string">&quot;准备场地，收钱100万&quot;</span>);</span><br><span class="line">                            <span class="keyword">return</span> method.invoke(bigStar, args);</span><br><span class="line">                        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                            <span class="keyword">return</span> method.invoke(bigStar, args);</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;);</span><br><span class="line">        <span class="keyword">return</span> starProxy;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>1、频率控制</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 记录发送时间到Redis</span></span><br><span class="line">            <span class="type">String</span> <span class="variable">redisKey</span> <span class="operator">=</span> <span class="string">&quot;email:verify:limit:&quot;</span> + email;</span><br><span class="line">            redisTemplate.opsForValue().set(redisKey, <span class="string">&quot;1&quot;</span>, resendInterval, TimeUnit.SECONDS);</span><br></pre></td></tr></table></figure>
+<p>可以看到上方的代码中，我们创建了一个代理类ProxyUtil，并创建了一个方法去实现代理对象。</p>
+<p>我们通过java提供的Proxy包中的newProxyInstance方法来创建一个代理对象，该方法需求三个参数：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">newProxyInstance(ClassLoader loader,</span><br><span class="line">                Class&lt;?&gt;[] interfaces,</span><br><span class="line">                InvocationHandler h)</span><br></pre></td></tr></table></figure>
 
-<p>2、验证码生成</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">private</span> String <span class="title function_">generateVerifyCode</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="type">Random</span> <span class="variable">random</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Random</span>();</span><br><span class="line">    <span class="type">StringBuilder</span> <span class="variable">code</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">StringBuilder</span>();</span><br><span class="line">    <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> <span class="number">0</span>; i &lt; <span class="number">6</span>; i++) &#123;</span><br><span class="line">        code.append(random.nextInt(<span class="number">10</span>));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> code.toString();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其中ClassLoader是类加载器，就是指定我们创建的类的对象；</p>
+<p>Class&lt;?&gt;[]则是指定我们生成的代理有哪些方法；</p>
+<p>InvocationHandler就是主体的代理逻辑内容，其主要就是invoke方法，包括后续调用代理时也是调用invoke方法；</p>
+<p>invoke方法也包含三个参数：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Object proxy, Method method, Object[] args</span><br></pre></td></tr></table></figure>
 
-<p>3、邮箱发送</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">// 发送邮件</span></span><br><span class="line"><span class="type">SimpleMailMessage</span> <span class="variable">message</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">SimpleMailMessage</span>();</span><br><span class="line">message.setFrom(fromEmail);</span><br><span class="line">message.setTo(email);</span><br><span class="line">message.setSubject(<span class="string">&quot;卡码笔记 - 验证码&quot;</span>);</span><br><span class="line">message.setText(<span class="string">&quot;您的验证码是：&quot;</span> + verifyCode + <span class="string">&quot;，有效期&quot;</span> + expireMinutes + <span class="string">&quot;分钟，请勿泄露给他人。&quot;</span>);</span><br><span class="line">mailSender.send(message);</span><br></pre></td></tr></table></figure>
+<p>proxy就是我们要用来实现的对象；</p>
+<p>method就是主要调用的方法函数；</p>
+<p>args就是调用之后的返回值；</p>
+<p>以上就是所有的代理创建过程，我们接下来可以通过测试来验证代理的实现与否。</p>
+<p>创建一个Test类：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Test</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> &#123;</span><br><span class="line">        <span class="type">BigStar</span> <span class="variable">bigStar</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BigStar</span>(<span class="string">&quot;杨超越&quot;</span>);</span><br><span class="line">        <span class="type">Star</span> <span class="variable">star</span> <span class="operator">=</span> ProxyUtil.creatProxy(bigStar);</span><br><span class="line"></span><br><span class="line">        <span class="type">String</span> <span class="variable">s</span> <span class="operator">=</span> star.sing(<span class="string">&quot;好日子&quot;</span>);</span><br><span class="line">        System.out.println(s);</span><br><span class="line"></span><br><span class="line">        star.dance(<span class="string">&quot;社会摇&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="验证码校验"><a href="#验证码校验" class="headerlink" title="验证码校验"></a>验证码校验</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">verifyCode</span><span class="params">(String email, String code, String type)</span> &#123;</span><br><span class="line">    <span class="comment">// 查询最新的未使用的验证码</span></span><br><span class="line">    <span class="type">EmailVerifyCode</span> <span class="variable">verifyCode</span> <span class="operator">=</span> emailVerifyCodeMapper.findLatestValidCode(email, type);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (verifyCode == <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 检查是否过期</span></span><br><span class="line">    <span class="keyword">if</span> (verifyCode.getExpiredAt().isBefore(LocalDateTime.now())) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 检查验证码是否正确</span></span><br><span class="line">    <span class="keyword">if</span> (!verifyCode.getCode().equals(code)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 标记验证码为已使用</span></span><br><span class="line">    emailVerifyCodeMapper.markAsUsed(verifyCode.getId());</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在其中实现一个主函数，创建一个BigStar类。</p>
+<p>然后通过java多态的特性创建一个接口代理：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">Star</span> <span class="variable">star</span> <span class="operator">=</span> ProxyUtil.creatProxy(bigStar);</span><br></pre></td></tr></table></figure>
 
-<p>1、验证码查询</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">&quot;findLatestValidCode&quot;</span> <span class="attr">resultType</span>=<span class="string">&quot;com.kama.notes.model.entity.EmailVerifyCode&quot;</span>&gt;</span></span><br><span class="line">    SELECT * FROM email_verify_code</span><br><span class="line">    WHERE email = #&#123;email&#125;</span><br><span class="line">    AND type = #&#123;type&#125;</span><br><span class="line">    AND used = FALSE</span><br><span class="line">    AND expired_at &gt; NOW()</span><br><span class="line">    ORDER BY created_at DESC</span><br><span class="line">    LIMIT 1</span><br><span class="line"><span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>通过调用这个代理的方法，代理会在invoke中实现逻辑，最后的代码测试结果为：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">准备话筒，收钱<span class="number">20</span>万</span><br><span class="line">杨超越唱了一首好日子</span><br><span class="line">谢谢！</span><br><span class="line">准备场地，收钱<span class="number">100</span>万</span><br><span class="line">杨超越跳了一支社会摇</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>2、验证流程</p>
-<p>检查是否存在 -&gt; 验证是否过期 -&gt; 对比验证码 -&gt; 标记已使用</p>
 
                 
             </div>
@@ -475,7 +470,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="https://jiahao798.github.io/2025/05/03/%E5%8D%A1%E7%A0%81%E7%AC%94%E8%AE%B0-%E9%82%AE%E7%AE%B1%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8F%91%E9%80%81/">https://jiahao798.github.io/2025/05/03/%E5%8D%A1%E7%A0%81%E7%AC%94%E8%AE%B0-%E9%82%AE%E7%AE%B1%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8F%91%E9%80%81/</a>
+                    <a href="https://jiahao798.github.io/2025/05/21/java%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/">https://jiahao798.github.io/2025/05/21/java%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -589,9 +584,10 @@
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2025/05/21/java%E5%8A%A8%E6%80%81%E4%BB%A3%E7%90%86/">
                     <div class="card-image">
@@ -609,9 +605,9 @@
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2025-05-21
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-21
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-user fa-fw"></i>
@@ -620,6 +616,7 @@
                         </span>
                     </div>
                 </div>
+
                 
             </div>
         </div>
@@ -630,13 +627,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2025/04/28/%E9%80%9A%E8%BF%87GitHub-Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+                <a href="/2025/05/03/%E5%8D%A1%E7%A0%81%E7%AC%94%E8%AE%B0-%E9%82%AE%E7%AE%B1%E9%AA%8C%E8%AF%81%E7%A0%81%E5%8F%91%E9%80%81/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/20.jpg" class="responsive-img" alt="通过GitHub+Hexo搭建个人博客">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="卡码笔记-邮箱验证码发送">
                         
-                        <span class="card-title">通过GitHub+Hexo搭建个人博客</span>
+                        <span class="card-title">卡码笔记-邮箱验证码发送</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -647,7 +644,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2025-04-28
+                                <i class="far fa-clock fa-fw icon-date"></i>2025-05-03
                             </span>
                         <span class="publish-author">
                             
